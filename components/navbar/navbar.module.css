@@ -8,7 +8,8 @@
   left: 0;
   z-index: 1;
   width: 100%;
-  border: 1px solid #6b6a6a4b;
+  border: 2px solid #6b6a6a4b;
+  background: white;
 }
 
 .logo {

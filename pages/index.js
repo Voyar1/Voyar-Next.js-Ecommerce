@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import PrimaryButton from "@/shared/primaryButton/PrimaryButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}></main>
+      <header className={styles.header}>
+        <div className={styles.headerCTA}>
+          <h1>WANT 25% OFF ON NEW REALESES?</h1>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+            dolorum veniam iste officia doloremque molestias, aut nihil quidem
+            ad hic.
+          </p>
+          <div>
+            <PrimaryButton>SHOP NOW</PrimaryButton>
+          </div>
+        </div>
+      </header>
     </>
   );
 }
