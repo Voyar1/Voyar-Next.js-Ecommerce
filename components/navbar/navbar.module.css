@@ -8,7 +8,7 @@
   left: 0;
   z-index: 1;
   width: 100%;
-  border: 2px solid #6b6a6a4b;
+  border: 2px solid #e7e7e7;
   background: white;
 }
 
@@ -37,6 +37,90 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  font-size: 1.5rem;
   gap: 1.25rem;
+}
+.navIcons button {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* MOBILE NAV */
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem;
+  border: 0.1rem solid #e7e7e7;
+  background-color: white;
+}
+
+.mobileNavMenu {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-basis: 33%;
+  align-items: center;
+}
+.mobileNavMenu button {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobileLogo {
+  text-align: center;
+}
+
+/* NAV MODAL */
+.mobileNavModal {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  width: 60%;
+  z-index: 10;
+  background: white;
+  transform: translateX(100%);
+  opacity: 0;
+  border-left: 0.1rem solid #e7e7e7;
+  transition: all 0.3s ease-in-out;
+}
+.closeBtnWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeBtn {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.mobileNavItems {
+  margin-top: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* ACTIVE MODAL */
+
+.modalIsOpen {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1060px) {
+  .navIcons {
+    justify-content: flex-start;
+  }
+
+  .mobileLogo {
+    font-size: 1.4rem;
+  }
 }

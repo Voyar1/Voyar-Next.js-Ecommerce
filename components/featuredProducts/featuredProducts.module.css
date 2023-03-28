@@ -1,0 +1,31 @@
+.featuredProductsSection {
+  max-width: 100vw;
+  padding: 2rem;
+}
+
+.featuredProductsCategory {
+  display: block;
+  font-weight: bold;
+  color: var(--color-secondary-variant);
+}
+
+.featuredProductsInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productsSubcategory {
+  margin: 0.6rem 0;
+}
+
+.productsLink {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* FEATURED PRODUCTS */
+.featuredProducts {
+  display: flex;
+  gap: 1.5rem;
+}
