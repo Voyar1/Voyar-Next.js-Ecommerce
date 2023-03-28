@@ -8,7 +8,7 @@
   left: 0;
   z-index: 1;
   width: 100%;
-  border: 2px solid #6b6a6a4b;
+  border: 2px solid #e7e7e7;
   background: white;
 }
 
@@ -39,4 +39,43 @@
   justify-content: flex-end;
   font-size: 1.5rem;
   gap: 1.25rem;
+}
+
+/* MOBILE NAV */
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem;
+  border: 0.1rem solid #e7e7e7;
+  background-color: white;
+}
+
+.mobileNavMenu {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-basis: 33%;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.mobileLogo {
+  text-align: center;
+}
+
+@media screen and (max-width: 1060px) {
+  .navIcons {
+    justify-content: flex-start;
+  }
+
+  .mobileLogo {
+    font-size: 1.4rem;
+  }
 }
