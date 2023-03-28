@@ -39,3 +39,12 @@
 .prodcutPrice {
   font-weight: bold;
 }
+
+/* MEDIUM DEVICES */
+
+@media screen and (max-width: 1060px) {
+  .productCardWrapper {
+    flex-shrink: 0;
+    width: 18rem;
+  }
+}

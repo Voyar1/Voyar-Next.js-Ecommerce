@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   return (
-    <Link href="/category/women">
+    <Link href="/category/women" className={styles.productCardWrapper}>
       <div className={styles.productCard}>
         <div className={styles.productImage}>
           <img src={product.image} alt={product.name} />
