@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import PrimaryButton from "@/shared/primaryButton/PrimaryButton";
+import FeaturedProducts from "@/components/FeaturedProducts/featuredProducts";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function Home() {
           </div>
         </div>
       </header>
+      <FeaturedProducts />
     </>
   );
 }
