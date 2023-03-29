@@ -1,0 +1,33 @@
+.footer {
+  margin-top: 2rem;
+  border-top: 0.1rem solid #e7e7e7;
+  padding: 1rem;
+}
+
+.footerWrapper {
+  margin: 0 auto;
+  width: 90%;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.footerFirstSection {
+  margin-top: 4rem;
+  flex-basis: 50%;
+}
+
+.footerSecondSection {
+  margin-top: 4rem;
+  flex-basis: 25%;
+}
+
+.footerThirdSection {
+  margin-top: 4rem;
+  flex-basis: 25%;
+}
+
+@media screen and (min-width: 1060px) {
+  .footerWrapper {
+    display: flex;
+  }
+}
