@@ -49,8 +49,10 @@ const OurValuesSection = () => {
       <h2 className={styles.ourValuesTitle}>WHY CHOOSE US?</h2>
       <div className={styles.ourValuesWrapper}>
         <ul className={styles.ourValuesList}>
-          {ourValues.map((ourValue) => {
-            return <OurValue ourValue={ourValue} />;
+          {ourValues.map((ourValue, index) => {
+            return (
+              <OurValue ourValue={ourValue} key={`${ourValue.name}-${index}`} />
+            );
           })}
         </ul>
       </div>

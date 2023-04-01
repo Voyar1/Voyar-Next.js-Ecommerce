@@ -4,13 +4,22 @@ import { BiSearch, BiCart, BiUser, BiMenu } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
+import { setIsCartOpen } from "@/state";
+import { useSelector, useDispatch } from "react-redux";
 
 const Navbar = () => {
   const isAboveMedium = useMediaQuery("(min-width: 1060px)");
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
+  const isCartOpen = useSelector((state) => state.cart.isCartOpen);
 
   const toggleMenuHandler = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleCartHandler = () => {
+    dispatch(setIsCartOpen());
   };
 
   return (
@@ -22,9 +31,9 @@ const Navbar = () => {
             <Link href="/">VOYAR</Link>
           </div>
           <div className={styles.navItems}>
-            <Link href="/category/women">WOMEN</Link>
-            <Link href="category/men">MEN</Link>
-            <Link href="category/acessories">ACCESSORIES</Link>
+            <Link href="/women">WOMEN</Link>
+            <Link href="/men">MEN</Link>
+            <Link href="/acessories">ACCESSORIES</Link>
           </div>
           <div className={styles.navIcons}>
             <button>
@@ -33,7 +42,7 @@ const Navbar = () => {
             <button>
               <BiUser />
             </button>
-            <button>
+            <button onClick={toggleCartHandler}>
               <BiCart />
             </button>
           </div>
@@ -45,7 +54,7 @@ const Navbar = () => {
             <button>
               <BiUser />
             </button>
-            <button>
+            <button onClick={toggleCartHandler}>
               <BiCart />
             </button>
           </div>
@@ -73,9 +82,15 @@ const Navbar = () => {
               </button>
             </div>
             <div className={`${styles.mobileNavItems} ${styles.navItems} `}>
-              <Link href="/category/women">WOMEN</Link>
-              <Link href="category/men">MEN</Link>
-              <Link href="category/acessories">ACCESSORIES</Link>
+              <Link href="/women" onClick={toggleMenuHandler}>
+                WOMEN
+              </Link>
+              <Link href="/men" onClick={toggleMenuHandler}>
+                MEN
+              </Link>
+              <Link href="/acessories" onClick={toggleMenuHandler}>
+                ACCESSORIES
+              </Link>
             </div>
           </div>
         </nav>
