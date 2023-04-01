@@ -1,0 +1,41 @@
+.collectionSection {
+  padding: 4rem 0;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      to bottom,
+      #1c1c1dd0,
+      rgba(56, 51, 55, 0.73)
+    ),
+    url("/hero-section-image.jpg");
+  background-size: cover;
+  background-position: 50% 10%;
+  color: white;
+  position: relative;
+}
+
+.collectionSectionCta {
+  margin-left: 5rem;
+  position: absolute;
+  top: 40%;
+  width: 50%;
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 760px) {
+  .collectionSectionCta {
+    position: absolute;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 85%;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

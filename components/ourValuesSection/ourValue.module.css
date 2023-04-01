@@ -1,0 +1,28 @@
+.ourValue {
+  border: 0.1rem solid var(--border-color);
+  padding: 5rem 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: var(--transition);
+}
+
+.ourValue:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 1.75rem;
+  color: var(--color-secondary-variant);
+  padding-bottom: 0.7rem;
+}
+
+.name {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.description {
+  width: 90%;
+  margin: 0;
+  padding: 0.3rem 0;
+}

@@ -9,19 +9,19 @@ const products = [
     price: 30,
   },
   {
-    name: "VOYAR universal",
+    name: "VOYAR universal3",
     image: "/product-image.jpg",
     cut: "Slim Fit",
     price: 30,
   },
   {
-    name: "VOYAR universal",
+    name: "VOYAR universal2",
     image: "/product-image.jpg",
     cut: "Slim Fit",
     price: 30,
   },
   {
-    name: "VOYAR universal",
+    name: "VOYAR universal1",
     image: "/product-image.jpg",
     cut: "Slim Fit",
     price: 30,
@@ -37,8 +37,10 @@ const FeaturedProducts = () => {
         <span className={styles.productsLink}>View All</span>
       </div>
       <div className={styles.featuredProducts}>
-        {products.map((product) => {
-          return <ProductCard product={product} />;
+        {products.map((product, index) => {
+          return (
+            <ProductCard product={product} key={`${product.name}-${index}`} />
+          );
         })}
       </div>
     </section>

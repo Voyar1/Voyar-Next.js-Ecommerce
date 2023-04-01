@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import PrimaryButton from "@/shared/primaryButton/PrimaryButton";
 import FeaturedProducts from "@/components/FeaturedProducts/featuredProducts";
+import CollectionSection from "@/components/collectionSection/CollectionSection";
+import Footer from "@/components/footer/Footer";
+import OurValuesSection from "@/components/ourValuesSection/OurValuesSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +32,11 @@ export default function Home() {
         </div>
       </header>
       <FeaturedProducts />
+      <CollectionSection />
+      <FeaturedProducts />
+      <CollectionSection />
+      <OurValuesSection />
+      <Footer />
     </>
   );
 }

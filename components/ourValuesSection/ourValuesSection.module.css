@@ -1,0 +1,28 @@
+.ourValues {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.ourValuesTitle {
+  font-size: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.ourValuesList {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media screen and (max-width: 1060px) {
+  .ourValuesList {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .ourValues {
+    width: 80%;
+  }
+}

@@ -7,6 +7,8 @@
   --color-secondary-variant: #787a7c;
 
   --transition: all 400ms ease;
+
+  --border-color: #e7e7e7;
 }
 
 * {
