@@ -5,6 +5,7 @@ import PrimaryButton from "@/shared/primaryButton/PrimaryButton";
 import FeaturedProducts from "@/components/FeaturedProducts/featuredProducts";
 import CollectionSection from "@/components/collectionSection/CollectionSection";
 import Footer from "@/components/footer/Footer";
+import OurValuesSection from "@/components/ourValuesSection/OurValuesSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function Home() {
       <CollectionSection />
       <FeaturedProducts />
       <CollectionSection />
+      <OurValuesSection />
       <Footer />
     </>
   );

@@ -5,7 +5,7 @@ const Footer = (props) => {
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.footerFirstSection}>
-          <p>VOYAR</p>
+          <p className={styles.footerLogo}>VOYAR</p>
           <p className="my-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
             deserunt! Quo dolore asperiores ipsam quod fugit odit hic ratione
@@ -13,7 +13,6 @@ const Footer = (props) => {
             Repellendus soluta, sed facere quod corrupti quisquam accusantium
             eaque excepturi repellat nulla?
           </p>
-          <p>All right Reserved</p>
         </div>
         <div className={styles.footerFirstSection}>
           <h4 className="font-bold">Links</h4>
@@ -27,6 +26,10 @@ const Footer = (props) => {
           <p className="my-5">Et gravida id et etiam</p>
           <p>Ullamcorper vivamus</p>
         </div>
+      </div>
+      <div className={styles.footerBottom}>
+        <p>All right Reserved Voyar</p>
+        <p></p>
       </div>
     </footer>
   );
