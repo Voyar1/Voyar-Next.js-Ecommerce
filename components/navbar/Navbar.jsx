@@ -42,7 +42,11 @@ const Navbar = () => {
             <button>
               <BiUser />
             </button>
-            <button onClick={toggleCartHandler}>
+            <button onClick={toggleCartHandler} className={styles.cartBtn}>
+              <div className={`${cart.length === 0 ? "" : styles.badge}`}>
+                {cart.length > 0 && cart.length}
+              </div>
+
               <BiCart />
             </button>
           </div>
@@ -54,7 +58,10 @@ const Navbar = () => {
             <button>
               <BiUser />
             </button>
-            <button onClick={toggleCartHandler}>
+            <button onClick={toggleCartHandler} className={styles.cartBtn}>
+              <div className={`${cart.length === 0 ? "" : styles.badge}`}>
+                {cart.length > 0 && cart.length}
+              </div>
               <BiCart />
             </button>
           </div>
