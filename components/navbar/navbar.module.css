@@ -130,7 +130,7 @@
 }
 
 /* MEDIA QUERIES */
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 1059px) {
   .navIcons {
     justify-content: flex-start;
   }
