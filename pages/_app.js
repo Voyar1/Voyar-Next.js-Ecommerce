@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "@/state";
-import CartMenu from "@/components/cartMenu/cartMenu";
+import CartMenu from "@/components/cartMenu/CartMenu";
 
 const store = configureStore({
   reducer: { cart: cartReducer },
