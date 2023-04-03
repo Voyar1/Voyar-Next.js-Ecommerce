@@ -2,9 +2,8 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import PrimaryButton from "@/shared/primaryButton/PrimaryButton";
-import FeaturedProducts from "@/components/FeaturedProducts/featuredProducts";
+import FeaturedProducts from "@/components/featuredProducts/FeaturedProducts";
 import CollectionSection from "@/components/collectionSection/CollectionSection";
-import Footer from "@/components/footer/Footer";
 import OurValuesSection from "@/components/ourValuesSection/OurValuesSection";
 
 const inter = Inter({ subsets: ["latin"] });
