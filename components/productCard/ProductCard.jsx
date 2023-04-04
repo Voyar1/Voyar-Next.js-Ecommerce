@@ -6,12 +6,17 @@ const ProductCard = ({ product }) => {
     <Link href="/category/women" className={styles.productCardWrapper}>
       <div className={styles.productCard}>
         <div className={styles.productImage}>
-          <img src={product.image} alt={product.name} />
+          <img
+            src={`http://localhost:1337${product?.attributes?.image?.data[0].attributes.formats.medium.url}`}
+            alt={product.attributes.name}
+          />
         </div>
         <div className={styles.productInfo}>
-          <span className={styles.productName}>Voyar APEX</span>
-          <span className={styles.productCut}>Slim Fit</span>
-          <span className={styles.prodcutPrice}>30$</span>
+          <span className={styles.productName}>{product.attributes.name}</span>
+          <span className={styles.productCut}>{product.attributes.cut}</span>
+          <span className={styles.prodcutPrice}>
+            {`${product.attributes.price} $`}
+          </span>
         </div>
       </div>
     </Link>

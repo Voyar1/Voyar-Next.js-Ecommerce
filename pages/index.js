@@ -8,7 +8,7 @@ import OurValuesSection from "@/components/ourValuesSection/OurValuesSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ womenNewReleases, menNewReleases }) {
   return (
     <>
       <Head>
@@ -30,11 +30,34 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <FeaturedProducts />
+      <FeaturedProducts newReleases={womenNewReleases} />
       <CollectionSection />
-      <FeaturedProducts />
+      <FeaturedProducts newReleases={menNewReleases} />
       <CollectionSection />
       <OurValuesSection />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const response = await fetch(
+    "http://localhost:1337/api/items?populate=image",
+    {
+      method: "GET",
+    }
+  );
+
+  const items = await response.json();
+
+  const womenNewReleases = items.data
+    .filter((item) => item.attributes.category === "women")
+    .slice(0, 4);
+
+  const menNewReleases = items.data
+    .filter((item) => item.attributes.category === "men")
+    .slice(0, 4);
+
+  return {
+    props: { womenNewReleases, menNewReleases },
+  };
 }
