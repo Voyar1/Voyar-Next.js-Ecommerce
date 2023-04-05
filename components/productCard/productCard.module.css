@@ -8,6 +8,7 @@
   width: 100%;
   flex-basis: 80%;
   overflow: hidden;
+  position: relative;
 }
 
 .productImage img {
@@ -39,6 +40,45 @@
   font-weight: bold;
 }
 
+.addToBag {
+  position: absolute;
+  z-index: 60;
+  width: 90%;
+  height: 20%;
+  bottom: 5%;
+  right: 50%;
+  transform: translateX(50%);
+  background: rgba(94, 94, 94, 0.603);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  color: white;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.imageHovered {
+  opacity: 1;
+}
+
+.addToBag button {
+  font-size: 1.75rem;
+  display: flex;
+  color: white;
+  cursor: pointer;
+}
+
+.countHandler {
+  display: flex;
+  gap: 0.1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.countHandler button {
+  color: white;
+}
 /* MEDIUM DEVICES */
 
 @media screen and (max-width: 1060px) {
