@@ -1,12 +1,15 @@
 import styles from "./productCard.module.css";
 import Link from "next/link";
-import { AiOutlineHeart } from "react-icons/ai";
 import { MdRemove } from "react-icons/md";
 import { IoIosAdd } from "react-icons/io";
 import { useState } from "react";
+import { addToCart } from "@/state";
+import { useDispatch } from "react-redux";
 
 const ProductCard = ({ product }) => {
   const [isHovered, setisHovered] = useState(false);
+  const [count, setCount] = useState(1);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.productCardWrapper}>
@@ -27,27 +30,48 @@ const ProductCard = ({ product }) => {
               isHovered ? styles.imageHovered : ""
             }`}
           >
-            <button>
-              <AiOutlineHeart />
+            <button
+              className={styles.addButton}
+              onClick={() =>
+                dispatch(addToCart({ item: { ...product, count } }))
+              }
+            >
+              Add
             </button>
             <div className={styles.countHandler}>
               <button>
-                <MdRemove />
+                <MdRemove
+                  onClick={() =>
+                    setCount((prevCount) => {
+                      if (prevCount === 1) {
+                        return prevCount;
+                      } else {
+                        return --prevCount;
+                      }
+                    })
+                  }
+                />
               </button>
-              <span>1</span>
+              <span>{count}</span>
               <button>
-                <IoIosAdd />
+                <IoIosAdd
+                  onClick={() => setCount((prevCount) => ++prevCount)}
+                />
               </button>
             </div>
           </div>
         </div>
-        <div className={styles.productInfo}>
-          <span className={styles.productName}>{product.attributes.name}</span>
-          <span className={styles.productCut}>{product.attributes.cut}</span>
-          <span className={styles.prodcutPrice}>
-            {`${product.attributes.price} $`}
-          </span>
-        </div>
+        <Link href="/category/women">
+          <div className={styles.productInfo}>
+            <span className={styles.productName}>
+              {product.attributes.name}
+            </span>
+            <span className={styles.productCut}>{product.attributes.cut}</span>
+            <span className={styles.prodcutPrice}>
+              {`${product.attributes.price} $`}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   );

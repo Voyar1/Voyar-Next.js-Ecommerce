@@ -6,37 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { BiTrash } from "react-icons/bi";
 import { GrFormAdd } from "react-icons/gr";
 
-const products = [
-  {
-    name: "VOYAR universal",
-    image: "/product-image.jpg",
-    cut: "Slim Fit",
-    price: 30,
-    id: 1,
-  },
-  {
-    name: "VOYAR universal 3",
-    image: "/product-image.jpg",
-    cut: "Slim Fit",
-    price: 30,
-    id: 2,
-  },
-  {
-    name: "VOYAR universal 2",
-    image: "/product-image.jpg",
-    cut: "Slim Fit",
-    price: 30,
-    id: 3,
-  },
-  {
-    name: "VOYAR universal 1",
-    image: "/product-image.jpg",
-    cut: "Slim Fit",
-    price: 30,
-    id: 4,
-  },
-];
-
 const CartMenu = () => {
   const isCartOpen = useSelector((state) => state.cart.isCartOpen);
   const cartItems = useSelector((state) => state.cart.cart);
@@ -82,21 +51,28 @@ const CartMenu = () => {
             </div>
           </div>
           <div className={styles.cartItems}>
-            {products.map((cartItem) => (
+            {cartItems.map((cartItem) => (
               <div
-                key={`${cartItem.name}-${cartItem.id}`}
+                key={`${cartItem.attributes.name}-${cartItem.id}`}
                 className={styles.cartItem}
               >
                 <div className={styles.cartItemImage}>
-                  <img src={cartItem.image} alt={cartItem.name} />
+                  <img
+                    src={`http://localhost:1337${cartItem?.attributes?.image?.data[0].attributes.formats.medium.url}`}
+                    alt={cartItem.attributes.name}
+                  />
                 </div>
                 <div className={styles.carItemInfo}>
                   <div className={styles.carItemInfoWrapper}>
-                    <span className={styles.name}>{cartItem.name}</span>
-                    <span className={styles.cut}>{cartItem.cut}</span>
+                    <span className={styles.name}>
+                      {cartItem.attributes.name}
+                    </span>
+                    <span className={styles.cut}>
+                      {cartItem.attributes.cut}
+                    </span>
                     <span
                       className={styles.price}
-                    >{`${cartItem.price} $`}</span>
+                    >{`${cartItem.attributes.price} $`}</span>
                   </div>
 
                   <div className={styles.cartItemActions}>
