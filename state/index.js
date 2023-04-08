@@ -5,7 +5,6 @@ const initialState = {
   cart: [],
   items: [],
 };
-
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -15,7 +14,29 @@ export const cartSlice = createSlice({
     },
 
     addToCart: (state, action) => {
-      state.cart = [...state.cart, action.payload.item];
+      const existingCartItemIndex = state.cart.findIndex(
+        (item) => item.id === action.payload.item.id
+      );
+      const existingCartItem = state.cart[existingCartItemIndex];
+      let updatedItems;
+
+      if (existingCartItem) {
+        const updatedItem = {
+          ...existingCartItem,
+          count: existingCartItem.count + action.payload.item.count,
+        };
+        updatedItems = [...state.cart];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      } else {
+        updatedItems = state.cart.concat(action.payload.item);
+      }
+
+      // return {
+      //   items: updatedItems,
+      //   totalAmount: updatedTotalAmount,
+      // };
+
+      state.cart = [...updatedItems];
     },
 
     removeFromCart: (state, action) => {

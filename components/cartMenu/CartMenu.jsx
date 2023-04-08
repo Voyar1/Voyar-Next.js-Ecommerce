@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import styles from "./cartMenu.module.css";
 import { MdClose, MdRemove } from "react-icons/md";
-import { setIsCartOpen } from "@/state";
+import {
+  removeFromCart,
+  setIsCartOpen,
+  increaseCount,
+  decreaseCount,
+} from "@/state";
 import { useSelector, useDispatch } from "react-redux";
 import { BiTrash } from "react-icons/bi";
 import { GrFormAdd } from "react-icons/gr";
@@ -10,7 +15,6 @@ const CartMenu = () => {
   const isCartOpen = useSelector((state) => state.cart.isCartOpen);
   const cartItems = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
-
   useEffect(() => {
     if (isCartOpen) {
       document.body.style.overflow = "hidden";
@@ -76,15 +80,27 @@ const CartMenu = () => {
                   </div>
 
                   <div className={styles.cartItemActions}>
-                    <button>
+                    <button
+                      onClick={() =>
+                        dispatch(removeFromCart({ id: cartItem.id }))
+                      }
+                    >
                       <BiTrash />
                     </button>
                     <div className={styles.countHandler}>
-                      <button>
+                      <button
+                        onClick={() =>
+                          dispatch(decreaseCount({ id: cartItem.id }))
+                        }
+                      >
                         <MdRemove />
                       </button>
-                      <span>1</span>
-                      <button>
+                      <span>{cartItem.count}</span>
+                      <button
+                        onClick={() =>
+                          dispatch(increaseCount({ id: cartItem.id }))
+                        }
+                      >
                         <GrFormAdd />
                       </button>
                     </div>

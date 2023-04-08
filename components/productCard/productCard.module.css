@@ -42,7 +42,7 @@
 
 .addToBag {
   position: absolute;
-  z-index: 60;
+  z-index: 40;
   width: 90%;
   height: 20%;
   bottom: 5%;
