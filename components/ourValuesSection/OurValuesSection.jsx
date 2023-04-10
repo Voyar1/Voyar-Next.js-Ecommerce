@@ -1,6 +1,6 @@
 import OurValue from "./OurValue";
 import styles from "./ourValuesSection.module.css";
-import { BsCheckLg, BsArrowsMove, BsSend } from "react-icons/Bs";
+import { BsCheckLg, BsArrowsMove, BsSend } from "react-icons/bs";
 import { AiOutlineSafety, AiOutlineCopyright } from "react-icons/ai";
 import { FaHandshake } from "react-icons/fa";
 
