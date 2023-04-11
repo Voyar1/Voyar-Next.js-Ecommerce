@@ -1,0 +1,29 @@
+.categoryProductsContainer {
+  padding: 6rem 0;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.categoryProductsFilters {
+  display: flex;
+  gap: 1rem;
+}
+
+.categoryProductsFilters span {
+  border: 0.1rem solid var(--color-secondary);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.categoryProductsFilters .active {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.categoryProductsList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 3rem 0;
+}

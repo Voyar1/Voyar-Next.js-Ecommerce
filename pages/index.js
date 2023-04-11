@@ -48,7 +48,6 @@ export async function getStaticProps() {
   );
 
   const items = await response.json();
-
   const womenNewReleases = items.data
     .filter((item) => item.attributes.category === "women")
     .slice(0, 4);
