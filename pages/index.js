@@ -41,7 +41,7 @@ export default function Home({ womenNewReleases, menNewReleases }) {
 
 export async function getStaticProps() {
   const response = await fetch(
-    "http://localhost:1337/api/items?populate=image",
+    "http://127.0.0.1:1337/api/items?populate=image",
     {
       method: "GET",
     }
