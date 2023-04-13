@@ -19,7 +19,11 @@ const ProductCard = ({ product }) => {
           onMouseOver={() => setisHovered(true)}
           onMouseOut={() => setisHovered(false)}
         >
-          <Link href="/category/women">
+          <Link
+            href={`/${product.attributes.name
+              .toLowerCase()
+              .replaceAll(" ", "-")}`}
+          >
             <img
               src={`http://localhost:1337${product?.attributes?.image?.data[0].attributes.formats.medium.url}`}
               alt={product.attributes.name}
