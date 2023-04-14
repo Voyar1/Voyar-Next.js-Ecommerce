@@ -1,3 +1,77 @@
-.container {
+.productContainer {
   padding-top: 10rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.productCard {
+  display: flex;
+  gap: 1rem;
+}
+
+.productImage {
+  flex-basis: 55%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.productImage img {
+  object-fit: cover;
+  width: 70%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-basis: 45%;
+  padding-left: 1rem;
+}
+
+.productName {
+  margin: 0;
+}
+
+.shortDescription {
+  margin-top: 2rem;
+}
+
+.countHandler {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 0.3rem 0.8rem;
+  border: 0.1rem solid var(--color-secondary);
+}
+
+.countHandler button {
+  color: black;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.addButton {
+  background-color: rgb(47, 161, 214) !important;
+  width: 100%;
+  color: white;
+  transition: var(--transition);
+}
+
+.addButton:hover {
+  background-color: rgb(14, 98, 138) !important;
+}
+
+.categoryProductsList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 3rem 0;
 }

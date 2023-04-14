@@ -3,7 +3,7 @@ import styles from "./navbar.module.css";
 import { BiSearch, BiCart, BiUser, BiMenu } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { setIsCartOpen } from "@/state";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
+  const [isHighlighted, setIsHiglighted] = useState(false);
 
   const toggleMenuHandler = () => {
     setIsOpen(!isOpen);
@@ -20,6 +21,21 @@ const Navbar = () => {
   const toggleCartHandler = () => {
     dispatch(setIsCartOpen());
   };
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      return;
+    }
+    setIsHiglighted(true);
+
+    const timer = setTimeout(() => {
+      setIsHiglighted(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [cart]);
 
   return (
     <>
@@ -32,7 +48,7 @@ const Navbar = () => {
           <div className={styles.navItems}>
             <Link href="/women">WOMEN</Link>
             <Link href="/men">MEN</Link>
-            <Link href="/acessories">ACCESSORIES</Link>
+            <Link href="/accessories">ACCESSORIES</Link>
           </div>
           <div className={styles.navIcons}>
             <button>
@@ -42,7 +58,11 @@ const Navbar = () => {
               <BiUser />
             </button>
             <button onClick={toggleCartHandler} className={styles.cartBtn}>
-              <div className={`${cart.length === 0 ? "" : styles.badge}`}>
+              <div
+                className={`${cart.length === 0 ? "" : styles.badge} ${
+                  isHighlighted ? styles.bump : ""
+                }`}
+              >
                 {cart.length > 0 && cart.length}
               </div>
 
@@ -94,7 +114,7 @@ const Navbar = () => {
               <Link href="/men" onClick={toggleMenuHandler}>
                 MEN
               </Link>
-              <Link href="/acessories" onClick={toggleMenuHandler}>
+              <Link href="/accessories" onClick={toggleMenuHandler}>
                 ACCESSORIES
               </Link>
             </div>

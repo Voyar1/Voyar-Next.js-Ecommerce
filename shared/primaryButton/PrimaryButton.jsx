@@ -1,7 +1,12 @@
 import styles from "./primaryButton.module.css";
 
-const PrimaryButton = ({ children }) => {
-  return <button className={styles.primaryBtn}>{children}</button>;
+const PrimaryButton = ({ children, className, onClick }) => {
+  const buttonClasses = `${styles.primaryBtn} ${className}`;
+  return (
+    <button className={buttonClasses} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
 
 export default PrimaryButton;
