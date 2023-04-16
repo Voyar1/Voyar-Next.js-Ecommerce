@@ -2,7 +2,7 @@ import CategoryProducts from "@/components/categoryProducts/CategoryProducts";
 import React from "react";
 
 const Men = ({ menItems }) => {
-  return <CategoryProducts items={menItems} />;
+  return <CategoryProducts items={menItems} categoryName="Men" />;
 };
 
 export default Men;

@@ -62,3 +62,9 @@
 .nextButton:hover {
   background: var(--color-secondary);
 }
+
+@media screen and (max-width: 1060px) {
+  .adressForm div {
+    grid-column: span 4;
+  }
+}
