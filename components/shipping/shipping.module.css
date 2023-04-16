@@ -1,0 +1,49 @@
+/* .shipping {
+  width: 80%;
+  margin: 0 auto;
+} */
+.adressForm {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1rem;
+}
+
+.adressForm input {
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.firstName {
+  grid-column: span 2;
+}
+
+.lastName {
+  grid-column: span 2;
+}
+
+.country {
+  grid-column: span 4;
+}
+
+.street1 {
+  grid-column: span 2;
+}
+
+.street2 {
+  grid-column: span 2;
+}
+
+.city {
+  grid-column: span 2;
+}
+
+.error {
+  display: block;
+  padding-top: 0.4rem;
+  color: red;
+}
+.inputError {
+  border-color: red;
+}

@@ -1,0 +1,19 @@
+.checkout {
+  padding-top: 10rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.stepper {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.activeStep {
+  color: rgb(47, 161, 214);
+}
