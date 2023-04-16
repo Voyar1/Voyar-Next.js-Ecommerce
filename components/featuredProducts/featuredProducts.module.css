@@ -27,7 +27,8 @@
 /* FEATURED PRODUCTS */
 .featuredProducts {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.4rem;
   overflow: hidden;
 }
@@ -37,7 +38,15 @@
 
 @media screen and (max-width: 1060px) {
   .featuredProducts {
+    display: flex;
     overflow-x: scroll;
     gap: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .flexShrink {
+    flex-shrink: 0;
+    width: 18rem;
   }
 }

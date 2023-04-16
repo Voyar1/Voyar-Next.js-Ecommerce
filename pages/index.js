@@ -5,6 +5,7 @@ import PrimaryButton from "@/shared/primaryButton/PrimaryButton";
 import FeaturedProducts from "@/components/featuredProducts/FeaturedProducts";
 import CollectionSection from "@/components/collectionSection/CollectionSection";
 import OurValuesSection from "@/components/ourValuesSection/OurValuesSection";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,21 +20,31 @@ export default function Home({ womenNewReleases, menNewReleases }) {
       </Head>
       <header className={styles.header}>
         <div className={styles.headerCTA}>
-          <h1>WANT 25% OFF ON NEW REALESES?</h1>
+          <h1>WANT 25% OFF ON ACCESSORIES?</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam
             dolorum veniam iste officia doloremque molestias, aut nihil quidem
             ad hic.
           </p>
           <div>
-            <PrimaryButton>SHOP NOW</PrimaryButton>
+            <Link href="/accessories">
+              <PrimaryButton>SHOP NOW</PrimaryButton>
+            </Link>
           </div>
         </div>
       </header>
-      <FeaturedProducts newReleases={womenNewReleases} />
-      <CollectionSection />
-      <FeaturedProducts newReleases={menNewReleases} />
-      <CollectionSection />
+      <FeaturedProducts newReleases={womenNewReleases} slug={`/women`} />
+      <CollectionSection
+        bgImage={`/voyar-woman-collection.jpg`}
+        slug={`/women`}
+        title="Discover new women collection"
+      />
+      <FeaturedProducts newReleases={menNewReleases} slug={`/men`} />
+      <CollectionSection
+        bgImage={`/man-collection-section.jpg`}
+        slug={`/men`}
+        title="Discover new man collection"
+      />
       <OurValuesSection />
     </>
   );

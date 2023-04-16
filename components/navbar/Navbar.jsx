@@ -51,12 +51,12 @@ const Navbar = () => {
             <Link href="/accessories">ACCESSORIES</Link>
           </div>
           <div className={styles.navIcons}>
-            <button>
+            {/* <button>
               <BiSearch />
             </button>
             <button>
               <BiUser />
-            </button>
+            </button> */}
             <button onClick={toggleCartHandler} className={styles.cartBtn}>
               <div
                 className={`${cart.length === 0 ? "" : styles.badge} ${
@@ -74,9 +74,9 @@ const Navbar = () => {
         // MOBILE NAV
         <nav className={styles.mobileNav}>
           <div className={styles.navIcons}>
-            <button>
+            {/* <button>
               <BiUser />
-            </button>
+            </button> */}
             <button onClick={toggleCartHandler} className={styles.cartBtn}>
               <div className={`${cart.length === 0 ? "" : styles.badge}`}>
                 {cart.length > 0 && cart.length}
@@ -88,9 +88,9 @@ const Navbar = () => {
             <Link href="/">VOYAR</Link>
           </div>
           <div className={styles.mobileNavMenu}>
-            <button>
+            {/* <button>
               <BiSearch />
-            </button>
+            </button> */}
             <button onClick={toggleMenuHandler}>
               <BiMenu />
             </button>

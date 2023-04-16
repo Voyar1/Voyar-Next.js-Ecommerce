@@ -5,18 +5,67 @@ import * as yup from "yup";
 import Payment from "@/components/Payment/Payment";
 import Shipping from "@/components/shipping/Shipping";
 import styles from "./checkout.module.css";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51MxTdQEA6LTS6Hgs7wuXtrY5wuReJMV1eEVtxaSex1nDz7pVXwSOvmw31OV8ja5FLYRYM2BaJId3kf8Wn7dw8W7I00XIpNTcnp"
+);
 
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [userInfo, setUserInfo] = useState({});
+  const [confirm, setConfirm] = useState(false);
   const cart = useSelector((state) => state.cart.cart);
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
+  const isThirdStep = activeStep === 2;
 
   const handleFormSubmit = async (values, actions) => {
-    setActiveStep(activeStep + 1);
+    if (isFirstStep) {
+      setActiveStep(activeStep + 1);
+
+      setUserInfo(values);
+    }
+
+    if (isSecondStep && !confirm) {
+      setUserInfo((prevUserInfo) => ({
+        ...prevUserInfo,
+        ...values,
+      }));
+      setConfirm(true);
+    }
+
+    if (confirm && isSecondStep) {
+      makePayment(userInfo);
+      setActiveStep(activeStep + 1);
+    }
   };
 
-  async function makePayment(values) {}
+  const handleStepBack = () => {
+    setActiveStep(activeStep - 1);
+  };
+  console.log(activeStep);
+  async function makePayment(values) {
+    const stripe = await stripePromise;
+    const requestBody = {
+      userName: [values.firstName, values.lastName].join(""),
+      email: values.email,
+      products: cart.map(({ id, count }) => ({
+        id,
+        count,
+      })),
+    };
+
+    const response = await fetch("http://127.0.0.1:1337/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
+    });
+    const session = await response.json();
+    await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+  }
 
   return (
     <div className={styles.checkout}>
@@ -30,7 +79,14 @@ const Checkout = () => {
         </span>
       </div>
       <div>
-        {activeStep === 0 && <Shipping />}
+        {isFirstStep && <Shipping handleFormSubmit={handleFormSubmit} />}
+        {isSecondStep && (
+          <Payment
+            handleStepBack={handleStepBack}
+            handleFormSubmit={handleFormSubmit}
+            confirm={confirm}
+          />
+        )}
 
         {/* <Formik
           onSubmit={handleFormSubmit}
@@ -44,7 +100,6 @@ const Checkout = () => {
             handleBlur,
             handleChange,
             handleSubmit,
-            setFieldValue,
           }) => (
             <form onSubmit={handleSubmit}>
               {isFirstStep && (
@@ -84,36 +139,5 @@ const Checkout = () => {
     </div>
   );
 };
-
-// const initialValues = {
-//   billingAddress: {
-//     firstName: "",
-//     lastName: "",
-//     country: "",
-//     street1: "",
-//     street2: "",
-//     city: "",
-//     state: "",
-//     zipCode: "",
-//   },
-//   email: "",
-//   phoneNumber: "",
-// };
-
-const billingSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  country: yup.string().required("required"),
-  street1: yup.string().required("required"),
-  street2: yup.string(),
-  city: yup.string().required("required"),
-  state: yup.string().required("required"),
-  zipCode: yup.string().required("required"),
-});
-
-const paymentSchema = yup.object().shape({
-  email: yup.string().required("required"),
-  phoneNumber: yup.string().required("required"),
-});
 
 export default Checkout;

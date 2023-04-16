@@ -6,13 +6,13 @@ import { useState } from "react";
 import { addToCart } from "@/state";
 import { useDispatch } from "react-redux";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, className }) => {
   const [isHovered, setisHovered] = useState(false);
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.productCardWrapper}>
+    <div className={`${styles.productCardWrapper} ${className}`}>
       <div className={styles.productCard}>
         <div
           className={styles.productImage}
@@ -65,7 +65,11 @@ const ProductCard = ({ product }) => {
             </div>
           </div>
         </div>
-        <Link href="/category/women">
+        <Link
+          href={`/${product.attributes.name
+            .toLowerCase()
+            .replaceAll(" ", "-")}`}
+        >
           <div className={styles.productInfo}>
             <span className={styles.productName}>
               {product.attributes.name}

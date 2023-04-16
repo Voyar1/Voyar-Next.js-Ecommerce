@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./cartMenu.module.css";
 import { MdClose, MdRemove } from "react-icons/md";
+import Link from "next/link";
 import {
   removeFromCart,
   setIsCartOpen,
@@ -109,6 +110,15 @@ const CartMenu = () => {
               </div>
             ))}
           </div>
+          {cartItems.length === 0 ? null : (
+            <Link
+              href="/checkout"
+              className={styles.checkout}
+              onClick={toggleCartHandler}
+            >
+              Checkout
+            </Link>
+          )}
         </div>
       </div>
     </div>

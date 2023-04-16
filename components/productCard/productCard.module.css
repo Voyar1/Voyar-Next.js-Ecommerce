@@ -1,7 +1,8 @@
 .productCard {
   display: flex;
   flex-direction: column;
-  height: 95%;
+  height: 100%;
+  width: 100%;
 }
 
 .productImage {
@@ -21,7 +22,7 @@
 .productInfo {
   margin-top: 0.6rem;
   display: flex;
-  flex-basis: 20%;
+  /* flex-basis: 20%; */
   flex-direction: column;
   color: black;
   padding: 0 0.2rem;
@@ -90,10 +91,3 @@
   border-radius: 6px;
 }
 /* MEDIUM DEVICES */
-
-@media screen and (max-width: 1060px) {
-  .productCardWrapper {
-    flex-shrink: 0;
-    width: 18rem;
-  }
-}

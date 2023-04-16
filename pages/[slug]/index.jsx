@@ -12,6 +12,16 @@ const index = ({ item, items }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
+  const relatedProducts = items.data
+    .filter((relatedItem) => {
+      return (
+        relatedItem.attributes.subCategory === item.attributes.subCategory &&
+        relatedItem.attributes.category === item.attributes.category &&
+        relatedItem.attributes.name !== item.attributes.name
+      );
+    })
+    .slice(-3);
+
   return (
     <div className={styles.productContainer}>
       <div className={styles.productCard}>
@@ -54,10 +64,10 @@ const index = ({ item, items }) => {
           </PrimaryButton>
         </div>
       </div>
-      <div>
+      <div className={styles.relatedProducts}>
         <h2>RELATED PRODUCTS</h2>
         <div className={styles.categoryProductsList}>
-          {items.data.map((item) => (
+          {relatedProducts.map((item) => (
             <ProductCard product={item} key={`${item.name}-${item.id}`} />
           ))}
         </div>

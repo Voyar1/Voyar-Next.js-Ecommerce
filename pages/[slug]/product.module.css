@@ -69,9 +69,48 @@
   background-color: rgb(14, 98, 138) !important;
 }
 
+.relatedProducts {
+  margin-top: 4rem;
+}
 .categoryProductsList {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
-  padding: 3rem 0;
+}
+
+@media screen and (max-width: 1059px) {
+  .productContainer {
+    padding-top: 10rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .productCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .productImage {
+    flex-basis: 40%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .productImage img {
+    object-fit: cover;
+    width: 70%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .productInfo {
+    flex-basis: 60%;
+  }
+
+  .categoryProductsList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
