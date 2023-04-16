@@ -24,7 +24,7 @@ const Payment = ({ handleFormSubmit, handleStepBack, confirm }) => {
           }) => (
             <form onSubmit={handleSubmit}>
               <div className={styles.adressForm}>
-                <div className={`${styles.firstName}`}>
+                <div className={`${styles.email}`}>
                   <Field
                     name="email"
                     type="email"
@@ -41,7 +41,7 @@ const Payment = ({ handleFormSubmit, handleStepBack, confirm }) => {
                   )}
                 </div>
 
-                <div className={styles.lastName}>
+                <div className={styles.phoneNumber}>
                   <Field
                     type="text"
                     placeholder="Phone Number"

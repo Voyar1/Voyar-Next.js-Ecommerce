@@ -11,27 +11,11 @@
   width: 100%;
 }
 
-.firstName {
+.email {
   grid-column: span 2;
 }
 
-.lastName {
-  grid-column: span 2;
-}
-
-.country {
-  grid-column: span 4;
-}
-
-.street1 {
-  grid-column: span 2;
-}
-
-.street2 {
-  grid-column: span 2;
-}
-
-.city {
+.phoneNumber {
   grid-column: span 2;
 }
 
@@ -62,4 +46,10 @@
 .buttonsContainer {
   display: flex;
   gap: 1rem;
+}
+
+@media screen and (max-width: 1060px) {
+  .adressForm div {
+    grid-column: span 4;
+  }
 }

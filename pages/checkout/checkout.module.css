@@ -17,3 +17,9 @@
 .activeStep {
   color: rgb(47, 161, 214);
 }
+
+@media screen and (max-width: 1060px) {
+  .stepper {
+    width: 100%;
+  }
+}

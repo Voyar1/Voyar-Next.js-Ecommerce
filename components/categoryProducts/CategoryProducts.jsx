@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import styles from "./categoryProducts.module.css";
 import ProductCard from "../productCard/ProductCard";
-const CategoryProducts = ({ items }) => {
+const CategoryProducts = ({ items, categoryName }) => {
   const [filters, setFilters] = useState("all");
+
+  const isAccessoriesPage = items[0].attributes.category === "accessories";
+
   const bottoms = items.filter(
     (item) => item.attributes.subCategory === "bottoms"
   );
@@ -15,27 +18,29 @@ const CategoryProducts = ({ items }) => {
 
   return (
     <div className={styles.categoryProductsContainer}>
-      <h1>Mens</h1>
-      <div className={styles.categoryProductsFilters}>
-        <span
-          onClick={() => setFilters("bottoms")}
-          className={filters === "bottoms" ? styles.active : ""}
-        >
-          Bottoms
-        </span>
-        <span
-          onClick={() => setFilters("t-shirt")}
-          className={filters === "t-shirt" ? styles.active : ""}
-        >
-          T-shirt
-        </span>
-        <span
-          onClick={() => setFilters("hoodie")}
-          className={filters === "hoodie" ? styles.active : ""}
-        >
-          Hoodie
-        </span>
-      </div>
+      <h1>{categoryName}</h1>
+      {!isAccessoriesPage && (
+        <div className={styles.categoryProductsFilters}>
+          <span
+            onClick={() => setFilters("bottoms")}
+            className={filters === "bottoms" ? styles.active : ""}
+          >
+            Bottoms
+          </span>
+          <span
+            onClick={() => setFilters("t-shirt")}
+            className={filters === "t-shirt" ? styles.active : ""}
+          >
+            T-shirt
+          </span>
+          <span
+            onClick={() => setFilters("hoodie")}
+            className={filters === "hoodie" ? styles.active : ""}
+          >
+            Hoodie
+          </span>
+        </div>
+      )}
       <div className={styles.categoryProductsList}>
         {filters === "all" &&
           items.map((item) => (
