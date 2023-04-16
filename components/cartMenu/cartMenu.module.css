@@ -154,6 +154,23 @@
   border: 0.1rem solid var(--border-color);
 }
 
+.checkout {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  background: rgb(47, 161, 214);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.checkout:hover {
+  background: rgb(16, 102, 141);
+}
+
 @media screen and (max-width: 1020px) {
   .cartMenu {
     position: fixed;
