@@ -27,7 +27,7 @@ const Shipping = ({ handleFormSubmit }) => {
                 <div className={`${styles.firstName}`}>
                   <Field
                     name="firstName"
-                    placeholder="firstName"
+                    placeholder="First Name"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     value={values.firstName}
