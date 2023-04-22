@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ womenNewReleases, menNewReleases }) {
+export default function Home({ womenNewReleases, menNewReleases, items }) {
   return (
     <>
       <Head>
@@ -68,6 +68,6 @@ export async function getStaticProps() {
     .slice(0, 4);
 
   return {
-    props: { womenNewReleases, menNewReleases },
+    props: { womenNewReleases, menNewReleases, items },
   };
 }

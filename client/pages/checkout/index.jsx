@@ -44,7 +44,6 @@ const Checkout = () => {
   const handleStepBack = () => {
     setActiveStep(activeStep - 1);
   };
-  console.log(activeStep);
   async function makePayment(values) {
     const stripe = await stripePromise;
     const requestBody = {
