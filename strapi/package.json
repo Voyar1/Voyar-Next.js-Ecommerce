@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.8.2",
+    "@strapi/plugin-users-permissions": "4.8.2",
+    "@strapi/strapi": "4.8.2",
+    "better-sqlite3": "8.0.1",
+    "npm": "^9.6.4",
+    "stripe": "^12.1.1"
+  },
+  "author": {
+    "name": "Arkadiusz"
+  },
+  "strapi": {
+    "uuid": "14d3eab8-eb8d-4b22-95be-6dd7c9458766"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x"
+  },
+  "license": "MIT"
+}
