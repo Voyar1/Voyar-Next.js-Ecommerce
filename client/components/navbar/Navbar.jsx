@@ -21,7 +21,7 @@ const Navbar = () => {
   const toggleCartHandler = () => {
     dispatch(setIsCartOpen());
   };
-
+  console.log();
   useEffect(() => {
     if (cart.length === 0) {
       return;
